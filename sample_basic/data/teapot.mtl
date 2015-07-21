@@ -1,0 +1,17 @@
+material teapot.mtl {
+    technique tech_1 {
+        pass {
+            ambient 0.1 0.1 0.1
+            diffuse 1.0 1.0 1.0
+            specular 1.0 1.0 1.0
+            emissive 0 0 0
+            polygon_mode FILL
+            front_face CCW
+            cull_face BACK
+            depth_test true
+            is_lit true
+            shininess 1.0
+        }
+    }
+}
+

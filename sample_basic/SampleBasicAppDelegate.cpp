@@ -1,5 +1,23 @@
 #include "SampleBasicAppDelegate.h"
 
+#include "FPSCamera.h"
+
+void SampleBasicAppDelegate::initScene()
+{
+    auto scene = make_shared<df3d::scene::Scene>();
+    auto camera = make_shared<FPSCamera>(1.0f);
+
+    g_sceneManager->setCurrentScene(scene);
+    g_sceneManager->setCamera(camera);
+
+    camera->transform()->setPosition(0.0f, 0.0f, 5.0f);
+
+    auto teapot = make_shared<df3d::scene::Node>();
+    teapot->attachComponent(make_shared<df3d::components::MeshComponent>("teapot.obj"));
+
+    g_sceneManager->addNodeToScene(teapot);
+}
+
 SampleBasicAppDelegate::SampleBasicAppDelegate()
 {
 
@@ -31,6 +49,8 @@ bool SampleBasicAppDelegate::onAppStarted(int windowWidth, int windowHeight)
         return false;
 
     df3d::render::MaterialLib::Defines.push_back("HIGH_QUALITY");
+
+    initScene();
 
     return true;
 }

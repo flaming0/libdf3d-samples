@@ -7,16 +7,19 @@ include(${PROJECT_SOURCE_DIR}/../libdf3d/cmake/libdf3d.cmake)
 find_package(Boost REQUIRED)
 
 set(sample_basic_HEADER_FILES
+    ${PROJECT_SOURCE_DIR}/../samples_common/FPSCamera.h
     SampleBasicAppDelegate.h
 )
 
 set(sample_basic_SOURCE_FILES
+    ${PROJECT_SOURCE_DIR}/../samples_common/FPSCamera.cpp
     SampleBasicAppDelegate.cpp
     main.cpp
 )
 
 include_directories(
     ${PROJECT_SOURCE_DIR}
+    ${PROJECT_SOURCE_DIR}/../samples_common
     ${PROJECT_SOURCE_DIR}/../libdf3d/libdf3d
     ${PROJECT_SOURCE_DIR}/../libdf3d/third-party
     ${PROJECT_SOURCE_DIR}/../libdf3d/third-party/bullet/src

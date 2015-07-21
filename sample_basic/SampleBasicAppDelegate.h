@@ -4,6 +4,8 @@
 
 class SampleBasicAppDelegate : public df3d::platform::AppDelegate
 {
+    void initScene();
+
 public:
     SampleBasicAppDelegate();
     ~SampleBasicAppDelegate();
