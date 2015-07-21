@@ -1,0 +1,3 @@
+[submodule "libdf3d"]
+	path = libdf3d
+	url = https://github.com/flaming0/libdf3d.git
