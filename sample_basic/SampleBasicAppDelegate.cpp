@@ -10,12 +10,21 @@ void SampleBasicAppDelegate::initScene()
     g_sceneManager->setCurrentScene(scene);
     g_sceneManager->setCamera(camera);
 
+    g_physicsWorld->setGravity({ 0, -10, 0 });
+
     camera->transform()->setPosition(0.0f, 0.0f, 5.0f);
 
     auto teapot = make_shared<df3d::scene::Node>();
     teapot->attachComponent(make_shared<df3d::components::MeshComponent>("teapot.obj"));
+    //teapot->attachComponent(make_shared<df3d::components::PhysicsComponent>(df3d::components::PhysicsComponent::CreationParams()));
+
+    // Add lights.
+    auto light = make_shared<df3d::scene::Node>();
+    light->attachComponent(make_shared<df3d::components::LightComponent>(df3d::components::LightComponent::Type::DIRECTIONAL));
+    light->light()->setDirection({ 0.0f, 0.0f, -1.0f });
 
     g_sceneManager->addNodeToScene(teapot);
+    g_sceneManager->addNodeToScene(light);
 }
 
 SampleBasicAppDelegate::SampleBasicAppDelegate()
